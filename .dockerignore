@@ -1,0 +1,19 @@
+# Keeps junk out of the build context and the buildx cache export. The
+# Containerfile already lists its build inputs explicitly; this is a second,
+# independent guard against shipping local state to the builder.
+
+# Never send VCS metadata, build output or secrets.
+.git
+bin/
+*.env
+
+# Bulk that the build never reads. .git alone is enough to inflate a
+# cache-to: type=gha export to hundreds of megabytes.
+docs
+scripts
+.github
+
+# Tooling and release metadata.
+.golangci.yml
+.mise.toml
+README.md

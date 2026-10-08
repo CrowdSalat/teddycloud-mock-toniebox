@@ -1,0 +1,6 @@
+# Binaries
+/bin/
+*.exe
+
+# Run artefacts (regenerated on exit)
+/mock-toniebox-report.json
