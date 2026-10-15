@@ -18,11 +18,16 @@ your code under test untouched.
 
 ```bash
 podman run --rm -p 9095:9095 \
-  ghcr.io/crowdsalat/teddycloud-mock-toniebox:latest \
+  ghcr.io/crowdsalat/teddycloud-mock-toniebox/teddycloud-mock-toniebox:latest \
   --teddycloud https://teddycloud:443 \
   --sse http://teddycloud:80 \
   --uid E00403500EEA4BF2
 ```
+
+The package name is the repo name, so the image path repeats it —
+`owner/<repo>/<package>` is all four segments. The shorter
+`ghcr.io/crowdsalat/teddycloud-mock-toniebox:latest` is not a valid reference
+and answers 403, which is an easy thing to guess wrong.
 
 No credentials, no volume mounts, no pairing. The box identity is generated
 in-process at startup.
